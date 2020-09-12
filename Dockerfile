@@ -14,13 +14,10 @@ RUN apk update \
 RUN pip install --upgrade pip \
   && pip install pipenv
 
-COPY ./Pipfile /usr/src/app/Pipfile
+COPY . /usr/src/app/
 
 RUN pipenv install --skip-lock --system --dev
 
 COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
 
-COPY . /usr/src/app/
-
-# entrypoint.shを実行
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
