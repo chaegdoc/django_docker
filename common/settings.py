@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user',
+    'polls.apps.PollsConfig',
 ]
 
 MIDDLEWARE = [
@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'common.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.environ.get('DATABASE_DB', os.path.join(BASE_DIR, 'db.sqlite3')),
-        'USER': os.environ.get('DATABASE_USER', 'user'),
+        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.environ.get('DATABASE_DB', 'database'),
+        'USER': os.environ.get('DATABASE_USER', 'django_user'),
         'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'password'),
-        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
-        'PORT': os.environ.get('DATABASE_PORT', '5432'),
+        'HOST': os.environ.get('DATABASE_HOST', '0.0.0.0'),
+        'PORT': os.environ.get('DATABASE_PORT', '15432'),
     }
 }
 
